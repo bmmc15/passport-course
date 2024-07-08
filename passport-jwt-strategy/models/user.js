@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    username: String,
-    hash: String,
-    salt: String
+  username: String,
+  hash: String,
+  salt: String,
 });
 
-mongoose.model('User', UserSchema);
+mongoose.model("User", UserSchema);

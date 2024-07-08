@@ -8,7 +8,7 @@ const genPassword = (password) => {
 
   return {
     salt,
-    genHash,
+    hash: genHash,
   };
 };
 

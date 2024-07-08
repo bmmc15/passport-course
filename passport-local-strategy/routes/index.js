@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
-const { genPassword } = require("../lib/passwordUtils");
+
 const connection = require("../config/database");
 const User = connection.models.User;
 const { isAuth, isAdmin } = require("./authMiddleware");
@@ -18,12 +18,10 @@ router.post(
 );
 
 router.post("/register", (req, res, next) => {
-  const { salt, genHash } = genPassword(req.body.password);
-
+  const { username, password } = req.body;
   const newUser = new User({
-    username: req.body.username,
-    hash: genHash,
-    salt,
+    username,
+    password,
     admin: true,
   });
 
